@@ -32,6 +32,10 @@ class Register extends Component {
           .child(user.uid)
           .set({first_name: '', last_name: '', email: email})
       })
+      .then(() => {
+        this.props.router.push('/profile');
+      })
+
   }
 
   render() {

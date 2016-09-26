@@ -15,6 +15,7 @@ const Routes = () => {
         <Route path="register" component={Register} />
         <Route path="login" component={Login} />
         <Route path="profile" component={Profile} onEnter={requireAuth} />
+        <Route path="/" component={Home} />
       </Route>
     </Router>
    );
