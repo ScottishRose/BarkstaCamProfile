@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import firebase from '../../firebase.config.js';
 
-class Register extends Component {
+class Profile extends Component {
   constructor() {
     super();
     this.state = {
-      email: '',
+      dog: '',
       password: '',
     };
     this.handleChange = this.handleChange.bind(this);
@@ -21,9 +21,9 @@ class Register extends Component {
   }
 
   handleSubmit() {
-    const { email, password } = this.state;
+    const { dog, password } = this.state;
     firebase.auth()
-      .createUserWithEmailAndPassword(email, password)
+      .createUserWithEmailAndPassword(dog, password)
       .catch((err) => {
         console.log(err);
       })
@@ -37,19 +37,19 @@ class Register extends Component {
   render() {
     return (
       <div>
-        <h1>Don't have an account? Sign up for one here!</h1>
-          <div id="registration-form">
+        <h1>Doggie Profile</h1>
+          <div id="profile-form">
             <div>
-              <input name="email" onChange={this.handleChange} type="text" placeholder="email" />
+              <input name="dog" onChange={this.handleChange} type="text" placeholder="Pup's Name" />
             </div>
             <div>
-              <input name="password" onChange={this.handleChange} type="password" placeholder="password" />
+              <input name="breed" onChange={this.handleChange} type="text" placeholder="Breed" />
             </div>
-            <button className="button" onClick={this.handleSubmit}>Register</button>
+            <button className="button" onClick={this.handleSubmit}>Submit</button>
           </div>
       </div>
     )
   };
 }
 
-export default withRouter(Register);
+export default withRouter(Profile);

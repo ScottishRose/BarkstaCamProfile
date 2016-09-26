@@ -1,6 +1,6 @@
 import React, { Component} from 'react';
-import firebase from '../../firebase.config.js';
 import { Link } from 'react-router';
+import firebase from '../../firebase.config.js';
 
 const propTypes = {
 

@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router';
 import firebase from '../../firebase.config.js';
 
+const propTypes = {
+  push: React.PropTypes.func.isRequired,
+}
+
+
 class Login extends Component {
   constructor() {
     super();
@@ -21,14 +26,7 @@ class Login extends Component {
   }
 
   handleSubmit() {
-    const { email, password } = this.state;
-    firebase.auth()
-      .signInWithEmailAndPassword(email, password)
-      .catch((err) =>{
-        const errorCode = err.code;
-        const errorMessage = err.message;
-        console.log(err)
-      })
+    this.context.router.push('/profile');
   }
 
   render() {

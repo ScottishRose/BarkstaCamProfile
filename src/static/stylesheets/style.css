@@ -1,13 +1,33 @@
+* {
+  margin: 0;
+  padding: 0;
+}
 body {
   background-color: #45b1e2;
   font-family: 'Karla', sans-serif;
   color: white;
 }
 
+footer {
+  background-color: white;
+  width: 100%;
+  height: 30px;
+}
+
 #login {
   position: absolute;
   top: 1rem;
   right: 5.7rem;
+}
+
+#main-content {
+  position: absolute;
+  padding-top: 6rem;
+  text-align: center;
+  top: 5rem;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 #register {
@@ -46,6 +66,12 @@ a {
   color: white;
 }
 
+.clearfix:after {
+  content: "";
+  display: block;
+  clear: both;
+
+}
 /*green #96c061
 blue #45b1e2
 grey #f0f0f0
