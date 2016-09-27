@@ -9,9 +9,10 @@ const propTypes = {
 
 class ProfileList extends Component {
   render() {
-    // if (this.props.data) {
+    if (this.props.data) {
       const profileElement = this.props.profile.map((profile, idx) => {
         return (
+          <div>
           <li key={idx}>
             <Profile
               handleDelete={this.props.handleDelete}
@@ -22,12 +23,16 @@ class ProfileList extends Component {
               id={profile.id}
             />
           </li>
-        );
-      });
-    // }
+          <div className="active-button">
+          <button onClick={this.handleDeleteClick}>X</button>
+        </div>
+      </div>
+      );
+
+    });
+  }
     return (
       <div>
-        {profileElement}
       </div>
     );
   }

@@ -60,6 +60,7 @@ class Profile extends Component {
       birthday: this.state.localBday,
     });
     this.setState({ saved: true });
+    this.props.router.push('/');
   }
   handleDeleteClick() {
     this.props.handleDelete(this.props.id);
@@ -70,14 +71,6 @@ class Profile extends Component {
           this.props.birthday === this.state.localBday;
   }
   render() {
-    let activeButton;
-    if (this.isSaved()) {
-      activeButton = (
-        <div className="active-button">
-          <button onClick={this.handleDeleteClick}>x</button>
-        </div>
-      );
-    }
     return (
       <div className={this.isSaved() ? 'saved' : 'not-saved'}>
         <h1>Doggie Profile</h1>

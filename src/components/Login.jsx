@@ -30,7 +30,7 @@ class Login extends Component {
         console.log(err)
       })
       .then(() => {
-        this.props.router.push('/profile');
+        this.props.router.push('/');
       })
   }
 

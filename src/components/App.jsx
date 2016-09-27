@@ -1,5 +1,5 @@
 import React, { Component} from 'react';
-import { Link } from 'react-router';
+import { Link, withRouter } from 'react-router';
 import firebase from '../../firebase.config.js';
 import Profile from './Profile.jsx';
 import ProfileList from './ProfileList.jsx';
@@ -14,6 +14,7 @@ class App extends Component {
     super();
     this.state = {
       loggedIn: false,
+      profiles: [],
     };
     this.signOut = this.signOut.bind(this);
     this.handlePublish = this.handlePublish.bind(this);
@@ -22,7 +23,9 @@ class App extends Component {
     this.httpUpdateProfile = this.httpUpdateProfile.bind(this);
     this.httpPublishProfile = this.httpPublishProfile.bind(this);
   }
-
+  componentDidMount() {
+    this.httpGetProfile();
+  }
   componentWillMount() {
     setTimeout(() => {
       firebase.auth().onAuthStateChanged((user) => {
@@ -36,10 +39,11 @@ class App extends Component {
   const url = 'https://barkprofile.firebaseio.com/profile.json';
   request.get(url)
          .then((response) => {
+          console.log(response);
            const profileData = response.body;
-           let profile = [];
+           let profiles = [];
            if (profileData) {
-             profile = Object.keys(profileData).map((id) => {
+             profiles = Object.keys(profileData).map((id) => {
                const individualProfileData = profileData[id];
                return {
                  id,
@@ -49,7 +53,7 @@ class App extends Component {
                };
              });
            }
-           this.setState({ profile });
+           this.setState({ profiles });
          });
 }
 handlePublish({ id, breed, dog, birthday }) {
@@ -86,9 +90,11 @@ httpPublishProfile({ breed, dog, birthday }) {
     firebase.auth()
       .signOut()
       .then(() => {
-        console.log('user signed out');
+        this.props.router.push('/');
       });
   }
+
+
 
   logInLinks() {
     if (!this.state.loggedIn) {
@@ -102,6 +108,7 @@ httpPublishProfile({ breed, dog, birthday }) {
       return (
         <div id="sign-out">
           <Link to="/" onClick={this.signOut}>Sign Out</Link>
+
         </div>
       );
     }
@@ -110,6 +117,8 @@ httpPublishProfile({ breed, dog, birthday }) {
   render() {
     const childrenWithProps = React.cloneElement(this.props.children, {
       handlePublish: this.handlePublish,
+      httpDeleteProfile: this.httpDeleteProfile,
+      profiles: this.state.profiles,
     });
     return (
       <div>
@@ -121,10 +130,6 @@ httpPublishProfile({ breed, dog, birthday }) {
         <div id="main-content">
           {childrenWithProps}
         </div>
-      <div className="container">
-          <ProfileList handleDelete={this.httpDeleteProfile} handlePublish={this.handlePublish} profile={this.state.profile} />
-        <Profile handleDelete={this.httpDeleteProfile} handlePublish={this.handlePublish} />
-      </div>
     </div>
     );
   }
@@ -132,4 +137,4 @@ httpPublishProfile({ breed, dog, birthday }) {
 
 App.propTypes = propTypes;
 
-export default App;
+export default withRouter(App);

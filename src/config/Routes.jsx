@@ -7,6 +7,7 @@ import Login from '../components/Login.jsx';
 import requireAuth from '../utils/auth.js';
 import Profile from '../components/Profile.jsx';
 import ProfileList from '../components/ProfileList.jsx';
+import Dashboard from '../components/Dashboard.jsx';
 
 const Routes = () => {
   return (
@@ -16,6 +17,8 @@ const Routes = () => {
         <Route path="register" component={Register} />
         <Route path="login" component={Login} />
         <Route path="profile" component={Profile} onEnter={requireAuth} />
+        <Route path="profileList" component={ProfileList} onEnter={requireAuth} />
+        <Route path="dashboard" component={Dashboard} />
       </Route>
     </Router>
    );
