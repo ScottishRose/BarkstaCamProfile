@@ -1,7 +1,7 @@
 {
-  "name": "project_two",
+  "name": "BarkstaCamProfile",
   "version": "1.0.0",
-  "description": "Unit 2 Project",
+  "description": "BarkstaCamProfile",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ScottishRose/ProjectTwo.git"
+    "url": "git+https://github.com/ScottishRose/BarkstaCamProfile.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ScottishRose/ProjectTwo/issues"
+    "url": "https://github.com/ScottishRose/BarkstaCamProfile/issues"
   },
-  "homepage": "https://github.com/ScottishRose/ProjectTwo#readme",
+  "homepage": "https://github.com/ScottishRose/BarkstaCamProfile#readme",
   "dependencies": {
     "babel-core": "^6.14.0",
     "babel-loader": "^6.2.5",
