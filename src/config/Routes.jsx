@@ -19,6 +19,7 @@ const Routes = () => {
         <Route path="profile" component={Profile} onEnter={requireAuth} />
         <Route path="profileList" component={ProfileList} onEnter={requireAuth} />
         <Route path="dashboard" component={Dashboard} />
+        <Route path="home" component={Home} onEnter={requireAuth} />
       </Route>
     </Router>
    );

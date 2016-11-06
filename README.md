@@ -1,11 +1,11 @@
-# ProjectTwo
-Unit 2 Project
+# BarkstaCam Profile
+Final Project
 
 ##Project MVP
 
-When you sign up for barkbox you don't have the option to make a custom profile for your pet. I am going to build a form that you can fill out and customize your barkbox to your pets needs based on their breed, size, special needs etc. 
+Creating unique profiles for your pet, on the BarkBox site. This is an idea to create an internal database through users of the site, so that photos and profiles of pets can be easily found and integrated into many of the social media outlets of bark & co.. with the permission of the user of course.
 
-##Technologies 
+##Technologies
 
 - React
 - Firebase
@@ -15,11 +15,3 @@ When you sign up for barkbox you don't have the option to make a custom profile 
 - html
 - css
 - webpack
-
-##Next Steps 
-
-Planning out the process and pseudo coding. Since I am making this to compliment an existing company/site style, I will also need to study the Bark and co site and it's code so I can keep in line with their brand. 
-
-##Bonuses
-
-I'll get back to you...

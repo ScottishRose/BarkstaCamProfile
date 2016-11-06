@@ -17,9 +17,13 @@ class ProfileList extends Component {
             <Profile
               handleDelete={this.props.handleDelete}
               handlePublish={this.props.handlePublish}
+              image={profile.url}
               dog={profile.dog}
               breed={profile.breed}
               birthday={profile.birthday}
+              social={profile.social}
+              tags={profile.tags}
+              caption={profile.caption}
               id={profile.id}
             />
           </li>

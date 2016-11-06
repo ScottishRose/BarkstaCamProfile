@@ -3,9 +3,13 @@ import { withRouter } from 'react-router';
 import firebase from '../../firebase.config.js';
 
 const propTypes = {
+  image: React.PropTypes.func,
   breed: React.PropTypes.string,
   dog: React.PropTypes.string,
   birthday: React.PropTypes.string,
+  social: React.PropTypes.string,
+  tags: React.PropTypes.string,
+  caption: React.PropTypes.string,
   handlePublish: React.PropTypes.func,
   handleDelete: React.PropTypes.func,
   id: React.PropTypes.string,
@@ -15,22 +19,40 @@ class Profile extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      localImage: this.props.image || '',
       localDog: this.props.dog || '',
       localBreed: this.props.breed || '',
       localBday: this.props.birthday || '',
+      localSocial: this.props.social || '',
+      localTags: this.props.tags || '',
+      localCaption: this.props.caption || '',
     };
+    this.handleImageChange = this.handleImageChange.bind(this);
     this.handleEditOfDog = this.handleEditOfDog.bind(this);
     this.handleEditOfBreed = this.handleEditOfBreed.bind(this);
-    this.handleEditOfBday= this.handleEditOfBday.bind(this);
+    this.handleEditOfBday = this.handleEditOfBday.bind(this);
+    this.handleEditOfSocial = this.handleEditOfSocial.bind(this);
+    this.handleEditOfTags = this.handleEditOfTags.bind(this);
+    this.handleEditOfCaption = this.handleEditOfCaption.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDeleteClick = this.handleDeleteClick.bind(this);
     this.isSaved = this.isSaved.bind(this);
   }
   componentWillReceiveProps(nextProps) {
     this.setState({
+      localImage: nextProps.image || '',
       localDog: nextProps.dog || '',
       localBreed: nextProps.breed || '',
       localBday: nextProps.birthday || '',
+      localSocial: nextProps.social || '',
+      localTags: nextProps.tags || '',
+      localCaption: nextProps.caption || '',
+    });
+  }
+  handleImageChange(e) {
+    const newImage = e.target.value;
+    this.setState({
+      localImage: newImage,
     });
   }
   handleEditOfDog(e) {
@@ -51,13 +73,35 @@ class Profile extends Component {
       localBday: newBday,
     });
   }
+  handleEditOfSocial(e) {
+    const newSocial = e.target.value;
+    this.setState({
+      localSocial: newSocial,
+    });
+  }
+  handleEditOfTags(e) {
+    const newTags = e.target.value;
+    this.setState({
+      localTags: newTags,
+    });
+  }
+  handleEditOfCaption(e) {
+    const newCaption = e.target.value;
+    this.setState({
+      localCaption: newCaption,
+    });
+  }
   handleSubmit(e) {
     e.preventDefault();
     this.props.handlePublish({
       id: this.props.id,
+      image: this.state.localImage,
       dog: this.state.localDog,
       breed: this.state.localBreed,
       birthday: this.state.localBday,
+      social: this.state.localSocial,
+      tags: this.state.localTags,
+      caption: this.state.localCaption,
     });
     this.setState({ saved: true });
     this.props.router.push('/');
@@ -66,9 +110,13 @@ class Profile extends Component {
     this.props.handleDelete(this.props.id);
   }
   isSaved() {
-    return this.props.dog === this.state.localDog &&
-          this.props.breed === this.state.localBreed &&
-          this.props.birthday === this.state.localBday;
+    return this.props.image === this.state.localImage &&
+           this.props.dog === this.state.localDog &&
+           this.props.breed === this.state.localBreed &&
+           this.props.birthday === this.state.localBday &&
+           this.props.social === this.state.localSocial &&
+           this.props.tags === this.state.localTags &&
+           this.props.caption === this.state.localCaption;
   }
   render() {
     return (
@@ -76,6 +124,10 @@ class Profile extends Component {
         <h1>Doggie Profile</h1>
           <form className="post-display" onSubmit={this.handleSubmit}>
             <div id="profile-form">
+              <div>
+                <input name="photo" type="file" value={this.state.url}
+                onChange={this.handleImageChange} />
+              </div>
               <div>
                 <input name="dog" onChange={this.handleEditOfDog} type="text" value={this.state.localDog} placeholder="Pup's Name" />
               </div>
@@ -85,11 +137,18 @@ class Profile extends Component {
               <div>
                 <input name="birthday" onChange={this.handleEditOfBday} type="text" value={this.state.localBday} placeholder="Birthday/Gotcha Day" />
               </div>
+              <div>
+                <input name="social" onChange={this.handleEditOfSocial} type="text"
+                value={this.state.localSocial} placeholder="Social Media Handle" />
+              </div>
+              <div>
+                <input className="caption" name="tags" onChange={this.handleEditOfTags} type="text" value={this.state.localTags} placeholder="Tags" />
+              </div>
+              <div>
+                <input className="caption" name="caption" onChange={this.handleEditOfCaption} type="text" value={this.state.localCaption} placeholder="Photo Caption" />
+              </div>
               <button className="button" type="submit" value="Save" onClick={this.handleSubmit}>Submit</button>
             </div>
-            {/* <div>
-             {activeButton}
-            </div> */}
           </form>
       </div>
     );

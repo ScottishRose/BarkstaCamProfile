@@ -4,13 +4,30 @@
 }
 
 h1 {
-  padding-bottom: 15px;
+  padding-bottom: 25px;
 }
+h3 {
+  padding-bottom: 25px;
+}
+
+/*li {
+  display: inline-block;
+  padding: 35px;
+  margin: 5px;
+  border: 2px solid white;
+}*/
 
 li {
   display: inline-block;
   padding: 35px;
+  margin: 5px;
+  border: 10px solid #fff;
+  border-bottom: 60px solid #fff;
+  -webkit-box-shadow: 3px 3px 3px #777;
+     -moz-box-shadow: 3px 3px 3px #777;
+          box-shadow: 3px 3px 3px #777;
 }
+
 body {
   background-color: #45b1e2;
   font-family: 'Karla', sans-serif;
@@ -30,6 +47,7 @@ img {
 
 p {
   background-image: url(../dog.jpg) center;
+  padding: 3px;
 }
 
 #login {
@@ -79,6 +97,21 @@ input {
   box-sizing: border-box;
   border-radius: 5%;
 }
+
+.profileButton {
+  color: white;
+  margin-top: 15px;
+  font-size: 13px;
+  background-color: #96c061;
+  height: 2rem;
+  width: 5rem;
+  box-sizing: border-box;
+  border-radius: 5%;
+}
+.caption {
+  width: 40%;
+}
+
 
 a {
   text-decoration: none;

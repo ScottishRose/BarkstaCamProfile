@@ -47,20 +47,24 @@ class App extends Component {
                const individualProfileData = profileData[id];
                return {
                  id,
+                 image: individualProfileData.image,
                  dog: individualProfileData.dog,
                  breed: individualProfileData.breed,
                  birthday: individualProfileData.birthday,
+                 social: individualProfileData.social,
+                 tags: individualProfileData.tags,
+                 caption: individualProfileData.caption,
                };
              });
            }
            this.setState({ profiles });
          });
 }
-handlePublish({ id, breed, dog, birthday }) {
+handlePublish({ id, image, dog, breed, birthday, social, tags, caption }) {
     if (id) {
-      this.httpUpdateProfile({ id, breed, dog, birthday });
+      this.httpUpdateProfile({ id, image, dog, breed, birthday, social, tags, caption });
     } else {
-      this.httpPublishProfile({ id, breed, dog, birthday });
+      this.httpPublishProfile({ id, image, dog, breed, birthday, social, tags, caption });
     }
   }
  httpDeleteProfile(id) {
@@ -70,18 +74,18 @@ handlePublish({ id, breed, dog, birthday }) {
            this.httpGetProfile();
          });
 }
-httpUpdateProfile({ id, breed, dog, birthday }) {
+httpUpdateProfile({ id, image, dog, breed, birthday, social, tags, caption }) {
   const url = `https://barkprofile.firebaseio.com/profile${id}.json`;
   request.patch(url)
-         .send({ breed, dog, birthday })
+         .send({ image, dog, breed, birthday, social, tags, caption })
          .then(() => {
            this.httpGetPosts();
          });
 }
-httpPublishProfile({ breed, dog, birthday }) {
+httpPublishProfile({ image, dog, breed, birthday, social, tags, caption }) {
   const url = 'https://barkprofile.firebaseio.com/profile.json';
   request.post(url)
-         .send({ breed, dog, birthday })
+         .send({ image, dog, breed, birthday, social, tags, caption })
          .then(() => {
            this.httpGetProfile();
          });
@@ -108,7 +112,6 @@ httpPublishProfile({ breed, dog, birthday }) {
       return (
         <div id="sign-out">
           <Link to="/" onClick={this.signOut}>Sign Out</Link>
-
         </div>
       );
     }
