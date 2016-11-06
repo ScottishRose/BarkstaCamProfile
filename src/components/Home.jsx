@@ -22,8 +22,8 @@ class Home extends React.Component {
           <p>Social Media: {profile.social}</p>
           <p>Tags: {profile.tags}</p>
           <p>Caption: {profile.caption}</p>
-          {/* <button className="profileButton" onClick={this.props.handleUpdateClick}>Update</button>
-          <button className="profileButton" onClick={this.props.handleDeleteClick}>Delete</button> */}
+          <button className="profileButton" onClick={this.props.handleUpdateClick}>Update</button>
+          <button className="profileButton" onClick={this.props.handleDeleteClick}>Delete</button>
         </li>
 
       );
