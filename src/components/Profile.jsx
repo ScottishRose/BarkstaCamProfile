@@ -87,9 +87,9 @@ class Profile extends Component {
               </div>
               <button className="button" type="submit" value="Save" onClick={this.handleSubmit}>Submit</button>
             </div>
-            <div>
+            {/* <div>
              {activeButton}
-            </div>
+            </div> */}
           </form>
       </div>
     );
@@ -163,5 +163,3 @@ export default withRouter(Profile);
     // )
 //   };
 // }
-
-
