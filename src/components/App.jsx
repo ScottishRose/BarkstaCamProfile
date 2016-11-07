@@ -6,7 +6,7 @@ import ProfileList from './ProfileList.jsx';
 import request from 'superagent';
 
 const propTypes = {
-
+  router: React.PropTypes.object,
 };
 
 class App extends Component {
@@ -94,7 +94,8 @@ httpPublishProfile({ image, dog, breed, birthday, social, tags, caption }) {
     firebase.auth()
       .signOut()
       .then(() => {
-        this.props.router.push('/');
+        this.setState({ loggedIn: false });
+        this.props.router.push('/login');
       });
   }
 

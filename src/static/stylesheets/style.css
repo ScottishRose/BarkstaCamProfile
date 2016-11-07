@@ -10,16 +10,11 @@ h3 {
   padding-bottom: 25px;
 }
 
-/*li {
+.image {
+  height:auto;
+  width: 450px;
+  align-items: center;
   display: inline-block;
-  padding: 35px;
-  margin: 5px;
-  border: 2px solid white;
-}*/
-
-li {
-  display: inline-block;
-  padding: 35px;
   margin: 5px;
   border: 10px solid #fff;
   border-bottom: 60px solid #fff;
@@ -28,13 +23,19 @@ li {
           box-shadow: 3px 3px 3px #777;
 }
 
+li {
+  display: inline-block;
+  padding-bottom: 25px;
+  margin-top: 10px;
+}
+
 body {
   background-color: #45b1e2;
   font-family: 'Karla', sans-serif;
   color: white;
 }
 
-img {
+img.logo {
   padding-left: 80px;
   padding-top: 20px;
 }

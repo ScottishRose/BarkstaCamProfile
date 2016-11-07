@@ -15,7 +15,7 @@ class Home extends React.Component {
       return (
 
         <li key={idx}>
-          <img src={profile.image} />
+          <img className="image" src={"http://www.photographyblogger.net/wp-content/uploads/2013/05/1-dog-bath.jpg"} />
           <h2>Name: {profile.dog}</h2>
           <p>Breed: {profile.breed}</p>
           <p>Birthday: {profile.birthday}</p>

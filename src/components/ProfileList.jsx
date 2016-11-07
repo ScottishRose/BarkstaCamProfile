@@ -27,9 +27,9 @@ class ProfileList extends Component {
               id={profile.id}
             />
           </li>
-          <div className="active-button">
+          {/* <div className="active-button">
           <button onClick={this.handleDeleteClick}>X</button>
-        </div>
+        </div> */}
       </div>
       );
 
