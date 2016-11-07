@@ -47,6 +47,9 @@ class Login extends Component {
           </div>
             <button className="button" onClick={this.handleSubmit}>Log In</button>
         </div>
+        <div>
+          <footer className="footer"><img src="https://barkbox.com/assets/v3/shared/mail-doodle.png" /></footer>
+        </div>
       </div>
     );
   }

@@ -51,6 +51,9 @@ class Register extends Component {
             </div>
             <button className="button" onClick={this.handleSubmit}>Register</button>
           </div>
+          <div>
+            <footer className="footer"><img src="http://www.mchumane.org/wp-content/uploads/barkbox-gift-doodle.png" /></footer>
+          </div>
       </div>
     )
   };

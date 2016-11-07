@@ -119,6 +119,10 @@ a {
   color: white;
 }
 
+.footer {
+  padding-top: 25px;
+}
+
 .clearfix:after {
   content: "";
   display: block;
