@@ -19,4 +19,4 @@ Creating unique profiles for your pet, on the BarkBox site. This is an idea to c
 
 ###Inspiration
 
-Thank you for Bark and Co for the inspiration for this project. Find out more about the company by visiting [bark.co] 
+Thank you to Bark and Co for the inspiration for this project. Find out more about the company by visiting (bark.co) 
