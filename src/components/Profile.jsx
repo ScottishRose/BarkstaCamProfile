@@ -151,6 +151,8 @@ class Profile extends Component {
               <button className="button" type="submit" value="Save" onClick={this.handleSubmit}>Submit</button>
             </div>
           </form>
+          <div className="profileRightFooter"><img src="https://barkbox-prod.global.ssl.fastly.net/assets/v3/contact-us/question-doodle-60e433f55b39f4de94b001a2c9028c8c.png"/></div>
+          <div className="profileLeftFooter"><img src="https://barkbox-prod.global.ssl.fastly.net/assets/v3/app/doodle-1e685db33343ffd58493cc5995d3629c.png" /></div>
       </div>
     );
   }

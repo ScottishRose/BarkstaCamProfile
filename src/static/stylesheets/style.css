@@ -4,7 +4,7 @@
 }
 
 h1 {
-  padding-bottom: 25px;
+  padding-bottom: 45px;
 }
 h3 {
   padding-bottom: 25px;
@@ -122,13 +122,17 @@ a {
 .footer {
   padding-top: 25px;
 }
-
-.clearfix:after {
-  content: "";
-  display: block;
-  clear: both;
-
+div.profileLeftFooter {
+  float: left;
+  margin-left: 50px;
+  margin-bottom: 60px;
 }
+div.profileRightFooter {
+  float: right;
+  padding-top: 75px;
+  padding-right: 95px;
+}
+
 /*green #96c061
 blue #45b1e2
 grey #f0f0f0

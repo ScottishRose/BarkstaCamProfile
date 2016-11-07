@@ -1,15 +1,6 @@
 import React from 'react';
 
 class Home extends React.Component {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     loggedIn: true,
-  //     profiles: [],
-  //   };
-  //   this.handleDeleteClick = this.handleDeleteClick.bind(this);
-  //   this.handleUpdateClick = this.handleUpdateClick.bind(this);
-  // };
   profileItems() {
     return this.props.profiles.map((profile, idx) => {
       return (
